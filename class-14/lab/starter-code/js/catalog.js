@@ -47,7 +47,7 @@ console.log( event.target ) ;
 
   // Do all the things ...
   addSelectedItemToCart(); //
-  cart.saveToLocalStorage();
+  cart.saveToLocalStorage();//
   updateCounter();
   updateCartPreview();
 
@@ -66,7 +66,7 @@ function addSelectedItemToCart() {
   let quantity = document.getElementById('quantity').value ; 
 
 
-  // TODO: using those, add one item to the Cart
+  // DONE: using those, add one item to the Cart
   // cart.addItem();
   let orderedItem = new CartItem(selected , quantity ) ;
   // console.log(orderedItem );
@@ -82,13 +82,21 @@ cart.addItem(selected , quantity);
 
 
 
-// TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+// DONE: Update the cart count in the header nav with the number of items in the Cart
+function updateCounter() {
+let itemCountElem = document.getElementById("itemCount") ;
+itemCountElem.textContent = cart.items.length ;
+}
 
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+ // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // TODO: Get the item and quantity from the form
+  
+
   // TODO: Add a new element to the cartContents div with that information
+
+
+
 }
 
 // Set up the "submit" event listener on the form.
