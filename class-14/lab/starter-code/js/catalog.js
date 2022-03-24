@@ -88,11 +88,32 @@ let itemCountElem = document.getElementById("itemCount") ;
 itemCountElem.textContent = cart.items.length ;
 }
 
- // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+ // DONE: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
-  // TODO: Get the item and quantity from the form
-  
+  // DONE: Get the item and quantity from the form
 
+
+  let cartContentsElem = document.getElementById("cartContents") ;
+
+
+  if(cartContentsElem.hasChildNodes()){
+    let children = cartContentsElem.childNodes ;
+    for (let  i=0 ; i <children.length ; i++ ){
+     children[i].remove() ; 
+    }
+
+  }
+
+  let lister = document.createElement("ul");
+  cartContentsElem.appendChild(lister);
+  for (let  i=0 ; i <cart.items.length ; i++ ){
+
+    let listElem = document.createElement("li");
+ 
+    listElem.textContent = `item: ${cart.items[i].product } , quantity: ${cart.items[i].quantity}`;
+
+    lister.appendChild(listElem);
+        }
   // TODO: Add a new element to the cartContents div with that information
 
 
