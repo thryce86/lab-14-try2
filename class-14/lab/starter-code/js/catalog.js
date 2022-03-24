@@ -34,7 +34,7 @@ function populateForm() {
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
 
-  // TODO: Prevent the page from reloading #ip
+  // DONE: Prevent the page from reloading #ip
   event.preventDefault();
   console.log( ' handle submit catalog.js') ;
 
@@ -53,7 +53,7 @@ console.log( event.target ) ;
 
 }
 
-// TODO: Add the selected item and quantity to the cart
+// DONE: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   // DONE: suss out the item picked from the select list
   let selected = document.getElementById('items').value ;
@@ -103,7 +103,7 @@ function updateCartPreview() {
     }
 
   }
-
+  // DONE: Add a new element to the cartContents div with that information
   let lister = document.createElement("ul");
   cartContentsElem.appendChild(lister);
   for (let  i=0 ; i <cart.items.length ; i++ ){
@@ -114,7 +114,7 @@ function updateCartPreview() {
 
     lister.appendChild(listElem);
         }
-  // TODO: Add a new element to the cartContents div with that information
+
 
 
 
