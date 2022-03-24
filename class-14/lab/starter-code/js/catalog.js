@@ -2,18 +2,30 @@
 
 'use strict';
 
+
+
+
 // Set up an empty cart for use on this page.
 const cart = new Cart([]);
+const selectElement = document.getElementById('items');
+
+
 
 // On screen load, we call this method to put all of the busmall options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
 
-  //TODO: Add an <option> tag inside the form's select for each product
-  const selectElement = document.getElementById('items');
+  //Done: Add an <option> tag inside the form's select for each product #ip
   for (let i in Product.allProducts) {
+    let optionElem = document.createElement('option') ;
 
-  }
+    // new Product('assets/bag.jpg', 'Bag');
+    optionElem.textContent = Product.allProducts[i].name ; 
+    selectElement.appendChild(optionElem);
+
+
+
+  } 
 
 }
 
@@ -22,10 +34,19 @@ function populateForm() {
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
 
-  // TODO: Prevent the page from reloading
+  // TODO: Prevent the page from reloading #ip
+  event.preventDefault();
+  console.log( ' handle submit catalog.js') ;
+
+// added code 
+// console.log( event.selected + '37' ) ;
+console.log( event.target ) ;
+
+
+
 
   // Do all the things ...
-  addSelectedItemToCart();
+  addSelectedItemToCart(); //
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
@@ -34,10 +55,32 @@ function handleSubmit(event) {
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
-  // TODO: suss out the item picked from the select list
-  // TODO: get the quantity
+  // DONE: suss out the item picked from the select list
+  let selected = document.getElementById('items').value ;
+  
+  // console.log( selected); 
+
+
+ 
+  // DONE: get the quantity
+  let quantity = document.getElementById('quantity').value ; 
+
+
   // TODO: using those, add one item to the Cart
+  // cart.addItem();
+  let orderedItem = new CartItem(selected , quantity ) ;
+  // console.log(orderedItem );
+
+
+  // cart.push(orderedItem) ;
+cart.addItem(selected , quantity);
+  // console.log(cart);
+
+
 }
+
+
+
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {}
